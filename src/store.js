@@ -6,6 +6,7 @@ const initialState = {
 
 
 function reducer(state, action) {
+  console.log(action);
   return initialState;
 }
 
