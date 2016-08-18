@@ -1,0 +1,95 @@
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+* {
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.App {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(100px * 3);
+  justify-content: center;
+}
+
+.end {
+  color: red;
+  font-size: 3em;
+  text-align: center;
+}
+
+.name-input {
+  font-size: 1.5em;
+  padding: .5em 1em;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+.box {
+  background-color: #faf5f5;
+  border: 2px solid #ccc;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box.is-filled {
+  cursor: default;
+}
+
+.box:not(.is-filled):hover {
+  background-color: #f0f0f0;
+}
+
+.box-image {
+  width: 80%;
+  height: 80%;
+}
+
+.buttons {
+  text-align: center;
+  margin-top: 2em;
+}
+
+.button {
+  padding: .25em 1em;
+  background-color: #138acc;
+  color: white;
+  font-size: 2em;
+  cursor: pointer;
+  margin: 0 1em;
+  border-radius: 6px;
+}
+
+.button:hover {
+  background-color: #147bb4;
+}
+
+.turn {
+  text-align: center;
+}
+
+.turn-img {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+}
