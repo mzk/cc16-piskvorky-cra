@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
+import Buttons from './Buttons';
+import Grid from './Grid';
+import {connect} from 'react-redux';
+
 
 class App extends Component {
   render() {
@@ -10,38 +14,11 @@ class App extends Component {
           <input className="name-input" type="text" value="" placeholder="Jméno hráče" />
         </div>
 
-        <div className="grid">
-          <div className="box is-filled">
-            <img className="box-image" src={require('./circle.svg')} alt="circle" />
-          </div>
-          <div className="box is-filled">
-            <img className="box-image" src={require('./cross.svg')} alt="cross" />
-          </div>
-          <div className="box">
-          </div>
-          <div className="box is-filled">
-            <img className="box-image" src={require('./cross.svg')} alt="cross" />
-          </div>
-          <div className="box is-filled">
-            <img className="box-image" src={require('./cross.svg')} alt="cross" />
-          </div>
-          <div className="box">
-          </div>
-          <div className="box">
-          </div>
-          <div className="box">
-          </div>
-          <div className="box is-filled">
-            <img className="box-image" src={require('./cross.svg')} alt="cross" />
-          </div>
+        {state.name}
 
-          <p className="end">Konec hry</p>
-        </div>
+        <Grid />
 
-        <div className="buttons">
-          <button className="button">Start</button>
-          <button className="button">Reset</button>
-        </div>
+        <Buttons />
 
         <p className="turn">
           Na řadě je: <img className="turn-img" src={require('./cross.svg')} alt="cross" />
