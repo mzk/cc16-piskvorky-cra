@@ -7,9 +7,15 @@ import {Provider} from 'react-redux';
 
 console.log(store.getState());
 
-ReactDOM.render(
-  <Provider store={store}>
+function render() {
+  ReactDOM.render(
+    <Provider store={store}>
     <App />
-  </Provider>,
+    </Provider>,
     document.getElementById('root')
-);
+  );
+}
+
+render();
+
+store.subscribe(render);

@@ -5,17 +5,22 @@ import Grid from './Grid';
 
 import store from './store';
 
+function start(name) {
+  return {
+    type: 'START',
+    name
+  }
+}
 
 class App extends Component {
   handleStartClick = () => {
     const name = this.refs.nameInput.value;
-    store.dispatch({
-      type: 'START',
-      name
-    })
+    store.dispatch(start(name));
+    console.log(store.getState());
   }
 
   render() {
+    console.log('render');
     const state = store.getState();
 
     return (

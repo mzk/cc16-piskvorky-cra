@@ -6,6 +6,12 @@ const initialState = {
 
 
 function reducer(state, action) {
+  if (action.type === 'START') {
+    return {
+      state,
+      name: action.name
+    }
+  }
   console.log(action);
   return initialState;
 }
