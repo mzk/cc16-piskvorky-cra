@@ -5,7 +5,7 @@ import './index.css';
 import store from './store';
 import {Provider} from 'react-redux';
 
-console.log(store.getState());
+//console.log(store.getState());
 
 function render() {
   ReactDOM.render(

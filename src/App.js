@@ -16,11 +16,11 @@ class App extends Component {
   handleStartClick = () => {
     const name = this.refs.nameInput.value;
     store.dispatch(start(name));
-    console.log(store.getState());
+    console.log(store.getState().gameArray);
   }
 
   render() {
-    console.log('render');
+    // console.log('render');
     const state = store.getState();
 
     return (
@@ -30,7 +30,7 @@ class App extends Component {
           <input ref="nameInput" className="name-input" type="text" placeholder="Jméno hráče" />
         </div>
 
-        {state.name && <Grid />}
+        {state.name && <Grid gameArray={store.getState().gameArray}/>}
 
         <div className="buttons">
           <button className="button" onClick={this.handleStartClick}>Start</button>
