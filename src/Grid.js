@@ -1,6 +1,21 @@
 import React, { Component } from 'react';
+import store from './store';
+
+
+function takeField(key) {
+  return {
+    type: 'UPDATE',
+    gameKey: key,
+  }
+}
 
 class Grid extends Component {
+
+  handleTakeClick = (itemId) => {
+    console.log(itemId);
+    store.dispatch(takeField(itemId));
+  }
+
   render() {
     const circle = require('./circle.svg');
     const cross = require('./cross.svg');
@@ -8,16 +23,16 @@ class Grid extends Component {
     var gameArray = this.props.gameArray;
     return (
       <div className="grid">
-        {gameArray.map(function (item,i) {
+        {gameArray.map((item,i) => {
             if (item === 0) {
-              return <div className="box" key={i}></div>
+              return <div className="box" key={i} onClick={() => this.handleTakeClick(i)}></div>
             }
-            if (item === 1) {
+            else if (item === 1) {
               return <div className="box is-filled" key={i}>
                 <img className="box-image" src={circle} alt="circle" />
               </div>
             }
-            if (item === 2) {
+            else if (item === 2) {
               return <div className="box is-filled" key={i}>
                 <img className="box-image" src={cross} alt="cross" />
               </div>
@@ -25,33 +40,6 @@ class Grid extends Component {
         })}
         <p className="end">Konec hry</p>
       </div>
-        /* <div className="box is-filled">
-          <img className="box-image" src={circle} alt="circle" />
-        </div>
-        <div className="box is-filled">
-          <img className="box-image" src={cross} alt="cross" />
-        </div>
-        <div className="box">
-        </div>
-        <div className="box is-filled">
-          <img className="box-image" src={cross} alt="cross" />
-        </div>
-        <div className="box is-filled">
-          <img className="box-image" src={cross} alt="cross" />
-        </div>
-        <div className="box">
-        </div>
-        <div className="box">
-        </div>
-        <div className="box">
-        </div>
-        <div className="box is-filled">
-          <img className="box-image" src={cross} alt="cross" />
-        </div>
-
-
-      </div>
-      */
     );
   }
 }

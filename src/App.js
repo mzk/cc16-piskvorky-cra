@@ -12,6 +12,12 @@ function start(name) {
   }
 }
 
+function reset() {
+  return {
+    type: 'RESET'
+  }
+}
+
 class App extends Component {
   handleStartClick = () => {
     const name = this.refs.nameInput.value;
@@ -19,9 +25,24 @@ class App extends Component {
     console.log(store.getState().gameArray);
   }
 
+  handleResetClick = () => {
+    store.dispatch(reset());
+  }
+
   render() {
     // console.log('render');
     const state = store.getState();
+
+    var nextOnComponent;
+    if (state.nextOn === 2) {
+      nextOnComponent = <p className="turn">
+        Na řadě je: <img className="turn-img" src={require('./cross.svg')} alt="cross" />
+      </p>;
+    } else {
+      nextOnComponent = <p className="turn">
+       Na řadě je: <img className="turn-img" src={require('./circle.svg')} alt="circle" />
+     </p>;
+    }
 
     return (
       <div className="App">
@@ -34,13 +55,11 @@ class App extends Component {
 
         <div className="buttons">
           <button className="button" onClick={this.handleStartClick}>Start</button>
-          <button className="button">Reset</button>
+          <button className="button" onClick={this.handleResetClick}>Restart</button>
         </div>
 
 
-        <p className="turn">
-          Na řadě je: <img className="turn-img" src={require('./cross.svg')} alt="cross" />
-        </p>
+        {nextOnComponent}
 
       </div>
     );
