@@ -9,6 +9,15 @@ function takeField(key) {
   }
 }
 
+function isAllFilled(gameArray) {
+  for (var i = 0; i < gameArray.length; i++) {
+    if (gameArray[i] === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
 class Grid extends Component {
 
   handleTakeClick = (itemId) => {
@@ -21,6 +30,13 @@ class Grid extends Component {
     const cross = require('./cross.svg');
 
     var gameArray = this.props.gameArray;
+
+    var endMsg;
+
+    if (isAllFilled(gameArray)) {
+      endMsg = <p className="end">Konec hry</p>
+    }
+
     return (
       <div className="grid">
         {gameArray.map((item,i) => {
@@ -38,7 +54,9 @@ class Grid extends Component {
               </div>
             }
         })}
-        <p className="end">Konec hry</p>
+
+      {endMsg}
+
       </div>
     );
   }
